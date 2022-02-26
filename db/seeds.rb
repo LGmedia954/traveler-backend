@@ -9,8 +9,10 @@
 # User.create(name: "Eddie", username: "eddieb", password: "password")
 
 anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
-
 disney = anaheim.attractions.create(name: "Disneyland", description: "Happiest place on Earth!")
-
+disney = Attraction.first
 eddie = User.first
-eddie.trips.create()
+eddie_disney = eddie.trips.create(start_date: "2022-06-01", end_date: "2022-06-08")
+
+eddie_disney.visits.create(attraction: disney, date: "2022-06-01")
+eddie.comments.create(content: "Fun for all", attraction: disney)
