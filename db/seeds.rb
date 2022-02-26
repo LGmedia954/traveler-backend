@@ -6,4 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Eddie", username: "eddieb", password: "password")
+# User.create(name: "Eddie", username: "eddieb", password: "password")
+
+anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
+
+disney = anaheim.attractions.create(name: "Disneyland", description: "Happiest place on Earth!")
+
+eddie = User.first
+eddie.trips.create()
