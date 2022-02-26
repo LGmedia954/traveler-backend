@@ -12,7 +12,7 @@
 # disney = anaheim.attractions.create(name: "Disneyland", description: "Happiest place on Earth!")
 # disney = Attraction.first
 # eddie = User.first
-# eddie_disney = eddie.trips.create(start_date: "2019-06-01", end_date: "2019-06-08")
+# eddie_disney = eddie.trips.create(start_date: "2022-06-01", end_date: "2022-06-08")
 #
-# eddie_disney.visits.create(attraction: disney, date: "2019-06-01")
+# eddie_disney.visits.create(attraction: disney, date: "2022-06-01")
 # eddie.comments.create(content: "Fun for all", attraction: disney)
