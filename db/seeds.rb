@@ -6,13 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# User.create(name: "Eddie", username: "eddieb", password: "password")
+# User.create(name: "Eddie", username: "eddieb", password: "password", hometown_id: 1)
+
+# User.create(name: "Nadia", username: "nadiaf", password: "password", hometown_id: 1)
 
 # anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
 # disney = anaheim.attractions.create(name: "Disneyland", description: "Happiest place on Earth!")
-# disney = Attraction.first
-# eddie = User.first
-# eddie_disney = eddie.trips.create(start_date: "2022-06-01", end_date: "2022-06-08")
-#
-# eddie_disney.visits.create(attraction: disney, date: "2022-06-01")
-# eddie.comments.create(content: "Fun for all", attraction: disney)
+disney = Attraction.first
+
+nadia = User.first
+nadia_disney = nadia.trips.create(start_date: "2022-06-01", end_date: "2022-06-08")
+
+nadia_disney.visits.create(attraction: disney, date: "2022-06-01")
+nadia.comments.create(content: "Fun for all", attraction: disney)

@@ -636,3 +636,309 @@ Migrating to CreateVisits (20220226224714)
   [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-02-26 21:24:04 -0500
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 13.0ms | Allocations: 383)
+Completed 200 OK in 28ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 2608)
+
+
+Started GET "/info/routes" for ::1 at 2022-02-26 21:24:11 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/info/routes"):
+  
+Started GET "/rails/info/routes" for ::1 at 2022-02-26 21:24:48 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [60 times] (Duration: 27.0ms | Allocations: 6644)
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.8ms | Allocations: 695)
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 31.9ms | Allocations: 10936)
+  Rendered layout /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/layouts/application.html.erb (Duration: 33.1ms | Allocations: 11175)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 12244)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "eddieb"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2022-02-26 21:42:14 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.2ms | Allocations: 311)
+Completed 200 OK in 20ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 2630)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-02-26 21:42:25 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 5343)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "eddieb"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/api/v1/users" for ::1 at 2022-02-26 21:44:59 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 7594)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-02-26 21:45:01 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 601)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["city", "Anaheim"], ["state", "California"], ["country", "USA"], ["created_at", "2022-02-27 02:49:36.869510"], ["updated_at", "2022-02-27 02:49:36.869510"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAttraction Create (0.2ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "description", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Disneyland"], ["description", "Happiest place on Earth!"], ["location_id", 1], ["created_at", "2022-02-27 02:49:36.882879"], ["updated_at", "2022-02-27 02:49:36.882879"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.2ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.2ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "nadiaf"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "hometown_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Nadia"], ["username", "nadiaf"], ["password_digest", "$2a$12$chZUB/8g1CC19p1ktRUyZO.86fUtNMQZK9lrDa/y9.sb0d4oFp5oW"], ["hometown_id", 1], ["created_at", "2022-02-27 03:07:12.438755"], ["updated_at", "2022-02-27 03:07:12.438755"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAttraction Load (0.2ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" ORDER BY "attractions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "nadiaf"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVisit Load (0.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "nadiaf"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAttraction Load (0.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/users" for ::1 at 2022-02-26 22:31:27 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 11695)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-02-26 22:31:38 -0500
+Processing by Api::V1::TripsController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1508)
+
+
+  
+NoMethodError (undefined method `logged_in?' for #<Api::V1::TripsController:0x007fcb1ee3bca0>
+Did you mean?  logger):
+  
+app/controllers/api/v1/trips_controller.rb:8:in `index'
+Started GET "/api/v1/users" for ::1 at 2022-02-26 22:31:58 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 909)
+
+
+Started GET "/api/v1/locations" for ::1 at 2022-02-26 22:32:09 -0500
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::LocationsController):
+  
+actionpack (6.1.4.6) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.4.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.6) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.4.6) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.6) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/host_authorization.rb:119:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.6) lib/rails/engine.rb:539:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/attractions" for ::1 at 2022-02-26 22:32:26 -0500
+Processing by Api::V1::AttractionsController#index as HTML
+  [1m[36mAttraction Load (0.2ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions"[0m
+  ↳ app/controllers/api/v1/attractions_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.8ms | Allocations: 5004)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-02-26 22:32:39 -0500
+Processing by Api::V1::TripsController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1484)
+
+
+  
+NoMethodError (undefined method `logged_in?' for #<Api::V1::TripsController:0x007fcb1ac80158>
+Did you mean?  logger):
+  
+app/controllers/api/v1/trips_controller.rb:8:in `index'
+Started GET "/api/v1/visits" for ::1 at 2022-02-26 22:32:51 -0500
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::VisitsController):
+  
+actionpack (6.1.4.6) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.4.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.6) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.6) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.4.6) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.6) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.6) lib/action_dispatch/middleware/host_authorization.rb:119:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.6) lib/rails/engine.rb:539:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/comments" for ::1 at 2022-02-26 22:33:02 -0500
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 1248)
+
+
