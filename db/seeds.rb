@@ -12,10 +12,10 @@
 
 # anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
 # disney = anaheim.attractions.create(name: "Disneyland", description: "Happiest place on Earth!")
-disney = Attraction.first
+# disney = Attraction.first
 
-nadia = User.first
-nadia_disney = nadia.trips.create(start_date: "2022-06-01", end_date: "2022-06-08")
+# nadia = User.first
+# nadia_disney = nadia.trips.create!(start_date: "2022-06-01", end_date: "2022-06-08")
 
-nadia_disney.visits.create(attraction: disney, date: "2022-06-01")
-nadia.comments.create(content: "Fun for all", attraction: disney)
+# nadia_disney.visits.create!(attraction: disney, date: "2022-06-01")
+# nadia.comments.create!(content: "Fun for all", attraction: disney)
