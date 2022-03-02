@@ -1661,3 +1661,31 @@ NameError (uninitialized constant UserSerializer::TripSerializer):
 app/serializers/user_serializer.rb:4:in `<class:UserSerializer>'
 app/serializers/user_serializer.rb:1:in `<main>'
 app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/users/1" for ::1 at 2022-03-01 19:36:50 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:53:in `set_user'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.5ms | Allocations: 12692)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007fbe0c2b4248>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/users/1" for ::1 at 2022-03-01 19:37:16 -0500
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:53:in `set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 996)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007fbe0c2b92e8>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:15:in `show'
