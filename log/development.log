@@ -1689,3 +1689,27 @@ NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007fb
 Did you mean?  serializable_hash):
   
 app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/users/1" for ::1 at 2022-03-02 15:01:35 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:53:in `set_user'
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.8ms | Allocations: 12595)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007f828c34f100>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/users" for ::1 at 2022-03-02 19:56:48 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 1.7ms | Allocations: 1376)
+
+
