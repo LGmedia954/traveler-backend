@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# User.create(name: "Eddie", username: "eddieb", password: "password", hometown_id: 1)
+
 
 # User.create(name: "Nadia", username: "nadiaf", password: "password", hometown_id: 1)
 
@@ -19,3 +19,7 @@
 
 # nadia_disney.visits.create!(attraction: disney, date: "2022-06-01")
 # nadia.comments.create!(content: "Fun for all", attraction: disney)
+
+
+
+# User.create(name: "Eddie", username: "eddieb", password: "password", hometown_id: 2)
