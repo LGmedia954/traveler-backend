@@ -1731,3 +1731,16 @@ Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 1.7ms | Allocations: 137
   [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "hometown_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Eddie"], ["username", "eddieb"], ["password_digest", "$2a$12$22gB381e86KQ/7SAivJEYOWvTTBlJ8OOjw5Q45zQxSth9CKN.1rHe"], ["hometown_id", 2], ["created_at", "2022-03-05 01:53:35.304906"], ["updated_at", "2022-03-05 01:53:35.304906"]]
   [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2022-03-09 12:21:14 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (11.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.1ms | Allocations: 436)
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 2633)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-03-09 12:21:14 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
