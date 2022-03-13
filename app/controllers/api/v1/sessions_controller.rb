@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(@user), status: :ok
     else
       render json: {
-        error: "Invalid Credentials"
+        error: "Invalid credentials"
       }
     end
   end
@@ -17,9 +17,16 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(current_user)
     else
       render json: {
-        error: "No one logged in"
+        error: "Not logged in"
       }
     end
+  end
+
+  def destroy
+    session.clear
+    render json: {
+      notice: "You have successfully logged out."
+    }
   end
 
 end
