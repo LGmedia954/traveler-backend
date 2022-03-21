@@ -17,7 +17,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(current_user)
     else
       render json: {
-        error: "Not logged in"
+        error: "No one logged in"
       }
     end
   end
