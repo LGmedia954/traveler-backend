@@ -1,6 +1,6 @@
 # Traveler App - Back End
 
-Work in Progress
+Work in Progress - FIS Series 1-12
 
 Frontend Repository: https://github.com/LGmedia954/traveler-frontend
 
