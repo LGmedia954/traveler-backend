@@ -3249,3 +3249,534 @@ Processing by Api::V1::TripsController#index as */*
 Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.5ms | Allocations: 2752)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 16:37:16 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (16.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 69ms (Views: 39.1ms | ActiveRecord: 2.1ms | Allocations: 23527)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 16:37:16 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 1.7ms | Allocations: 10566)
+
+
+Started GET "/" for ::1 at 2022-03-23 16:41:06 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 36.4ms | Allocations: 311)
+Completed 200 OK in 54ms (Views: 39.5ms | ActiveRecord: 0.0ms | Allocations: 2406)
+
+
+Started GET "/rails/info/routes" for ::1 at 2022-03-23 16:41:26 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [64 times] (Duration: 23.9ms | Allocations: 7119)
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 7.2ms | Allocations: 914)
+  Rendered /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 36.2ms | Allocations: 12154)
+  Rendered layout /Users/lesliegonzalez/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.6/lib/rails/templates/layouts/application.html.erb (Duration: 37.1ms | Allocations: 12396)
+Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 0.0ms | Allocations: 13560)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 16:52:36 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 74ms (Views: 27.8ms | ActiveRecord: 1.7ms | Allocations: 23455)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 16:52:36 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 0.7ms | Allocations: 10564)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 16:52:59 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 2466)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 16:52:59 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 2755)
+
+
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:13:24 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}, "user"=>{"name"=>"Howard", "username"=>"Howie"}}
+Completed 500 Internal Server Error in 1ms (Allocations: 624)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:22:in `create'
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:14:50 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}, "user"=>{"name"=>"Howard", "username"=>"Howie"}}
+Completed 500 Internal Server Error in 1ms (Allocations: 559)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:22:in `create'
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:15:26 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (27.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}, "user"=>{"name"=>"Howard", "username"=>"Howie"}}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms | Allocations: 8378)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:22:in `create'
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 20:28:00 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 70ms (Views: 38.2ms | ActiveRecord: 2.5ms | Allocations: 23451)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:28:00 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 1.1ms | Allocations: 10565)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 20:29:43 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 2468)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:29:43 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 2752)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 20:30:05 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 2470)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:30:05 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.5ms | Allocations: 2753)
+
+
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:30:29 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}}}
+[31mUnpermitted parameter: :hometown[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Howie"], ["LIMIT", 1]]
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:37:15 -0400
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Processing by Api::V1::UsersController#create as */*
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  Parameters: {"user"=>{"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}}}
+[31mUnpermitted parameter: :hometown[0m
+Completed 422 Unprocessable Entity in 406507ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 62432)
+
+
+Completed 500 Internal Server Error in 18927ms (ActiveRecord: 0.0ms | Allocations: 17443)
+
+
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:37:34 -0400
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/users_controller.rb:25:in `create'
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}}}
+[31mUnpermitted parameter: :hometown[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `create'
+Completed 500 Internal Server Error in 18405ms (ActiveRecord: 7.2ms | Allocations: 752501)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/users_controller.rb:24:in `create'
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 20:42:19 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (14.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 77ms (Views: 44.6ms | ActiveRecord: 2.1ms | Allocations: 23446)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:42:19 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "attractions" ON "locations"."id" = "attractions"."location_id" INNER JOIN "visits" ON "attractions"."id" = "visits"."attraction_id" WHERE "visits"."trip_id" = ?[0m  [["trip_id", 1]]
+  ↳ app/serializers/trip_serializer.rb:6:in `map'
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 1.1ms | Allocations: 10564)
+
+
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 20:43:06 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Howard", "username"=>"Howie", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}}}
+[31mUnpermitted parameter: :hometown[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city" = ? AND "locations"."state" = ? AND "locations"."country" = ? LIMIT ?[0m  [["city", "New York"], ["state", "New York"], ["country", "USA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mLocation Create (1.7ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["city", "New York"], ["state", "New York"], ["country", "USA"], ["created_at", "2022-03-24 00:43:06.256542"], ["updated_at", "2022-03-24 00:43:06.256542"]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Howie"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "hometown_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Howard"], ["username", "Howie"], ["password_digest", "$2a$12$aaFrby9pLxdPdXHxovr3xO4ZsLEvGadFJexNeGHBaqr/S68WQxscO"], ["hometown_id", 3], ["created_at", "2022-03-24 00:45:49.034182"], ["updated_at", "2022-03-24 00:45:49.034182"]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `create'
+Completed 201 Created in 162977ms (Views: 2.1ms | ActiveRecord: 5.9ms | Allocations: 43658)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:45:49 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 1664)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 20:51:20 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 23ms (Views: 9.7ms | ActiveRecord: 1.9ms | Allocations: 18081)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 20:51:21 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1864)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:02:41 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 25ms (Views: 6.4ms | ActiveRecord: 5.3ms | Allocations: 2933)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 21:02:41 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1678)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:03:59 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 2434)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 21:03:59 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 1656)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:05:02 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:17:in `get_current_user'
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 2414)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 21:05:02 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1655)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-03-23 21:05:21 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 242)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:05:22 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 784)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:06:42 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 757)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:11:20 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 8467)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-03-23 21:11:23 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:11:23 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 776)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:11:30 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 776)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-03-23 21:11:45 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 777)
+
+
+Started POST "/api/v1/signup" for ::1 at 2022-03-23 21:12:45 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Leslie", "username"=>"Les", "password"=>"[FILTERED]", "hometown"=>{"city"=>"New York", "state"=>"New York", "country"=>"USA"}}}
+[31mUnpermitted parameter: :hometown[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."city" = ? AND "locations"."state" = ? AND "locations"."country" = ? LIMIT ?[0m  [["city", "New York"], ["state", "New York"], ["country", "USA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Les"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "hometown_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Leslie"], ["username", "Les"], ["password_digest", "$2a$12$avfrAkyXVGKC9G.CiTTVDOz1O3uGouEcF1YJF9Zuki6IdaYqnK8Em"], ["hometown_id", 3], ["created_at", "2022-03-24 01:12:45.497258"], ["updated_at", "2022-03-24 01:12:45.497258"]]
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "trips"."id" FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 201 Created in 236ms (Views: 11.0ms | ActiveRecord: 2.8ms | Allocations: 17925)
+
+
+Started GET "/api/v1/trips" for ::1 at 2022-03-23 21:12:45 -0400
+Processing by Api::V1::TripsController#index as */*
+  Parameters: {"trip"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/api/v1/trips_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 1993)
+
+
