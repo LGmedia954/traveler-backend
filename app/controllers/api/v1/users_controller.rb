@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  #
+  
   # GET /users
   def index
     @users = User.all
@@ -19,11 +19,8 @@ class Api::V1::UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    @location =  Location.find_or_create_by(
-      city: params[:user][:hometown][:city], 
-      state: params[:user][:hometown][:state], 
-      country: params[:user][:hometown][:country])
-    # byebug
+    @location =  Location.find_or_create_by(city: params[:user][:hometown][:city], state: params[:user][:hometown][:state], country: params[:user][:hometown][:country])
+
     @user.hometown = @location
     if @user.save
       session[:user_id] = @user.id
@@ -60,4 +57,5 @@ class Api::V1::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :username, :password)
     end
+
 end
