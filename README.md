@@ -1,6 +1,6 @@
 # Traveler App - Back End
 
-Work in Progress - FIS React Redux Series 1-12
+FIS React Redux Series 1-12. Full CRUD functionality using a Rails API backend and React/Redux front end, with full Redux ownership of the app's state.
 
 Frontend Repository: https://github.com/LGmedia954/traveler-frontend
 
